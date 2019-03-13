@@ -39,7 +39,6 @@ s1.dropCourse('AI')
 print(s1.CourseList)
 
 
-
 print(s2.majorSubject)
-#s2.joinCourse('Introduction to Law') 
+s2.joinCourse('Introduction to Law') 
 print(s2.CourseList)

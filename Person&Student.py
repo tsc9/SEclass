@@ -57,5 +57,8 @@ s1.dropCourse('AI')
 print(s1.CourseList)
 
 # Declare s2's major as EE
-s2 = Student('EE')
+s2 = Student('tingshuo','chen','0909','EE','CS')
 print(s2.majorSubject)
+print(s2.CourseList)
+print(s2)
+print(s1)
