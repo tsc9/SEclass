@@ -68,6 +68,7 @@ class Student(Person):
     minorSubject = ''
     idStudent = ''
     studentList = {}
+    majorList = {}
     
     def __init__(self, firstName='',lastName='',birthDate='',Major='MIS',Minor='',id='00000'):
         super().__init__(firstName, lastName, birthDate)
@@ -75,6 +76,7 @@ class Student(Person):
         self.minorSubject = Minor
         self.idStudent = id
         self.studentList[id] = firstName + ' ' + lastName
+        self.majorList[id] = Major
         
     def printPersonalInformation(self):
         print(self.firstName,self.lastName,self.birthDay,self.majorSubject)
@@ -82,6 +84,10 @@ class Student(Person):
     @classmethod     
     def allStudent(self):
         return(self.studentList)
+        
+    @classmethod     
+    def allStudentMajor(self):
+        return(self.majorList)
         
         
 # Initiate three courses
@@ -100,8 +106,8 @@ p1.printPersonalInformation()
 #%%
 # Initiate students' object
 s1 = Student('Betty','Wang','10/28/2001',id='12345')
-s2 = Student('Carol','Hsu','08/28/2001',id='12340')
-s3 = Student('Diana','Ross','05/28/1971',id='12349')
+s2 = Student('Carol','Hsu','08/28/2001', Major = 'EE',id='12340')
+s3 = Student('Diana','Ross','05/28/1971', Major = 'CSIE',id='12349')
 s1.printPersonalInformation()
 
 #%%
@@ -125,3 +131,4 @@ print(Course.queryCourse(s2))
 # Qeury who took the Data Mining course and list all students afterward
 print(Course.queryStudent('Data_Mining'))
 print(Student.allStudent())
+print(Student.allStudentMajor())
