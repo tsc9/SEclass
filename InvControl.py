@@ -60,14 +60,26 @@ class Dict:
         self.aDict = {}        
 
 # a simple factory implementation
-def factory(type):
-    if type == 'List': return List()
-    if type == 'Dict': return Dict()
-    
-    raise Exception ('Unsupported Type')
-                   
+class Factory():
+
+    def __init__(self, type):
+        self.type = type
+
+    @staticmethod
+    def __new__(self,type):
+        try:
+            MyObj = eval(type)()
+        except NameError:
+            print('Name Error Exception')
+            return(None)
+        
+        if isinstance(MyObj, object):
+            return MyObj
+        else:
+            raise Exception ('Unsupported Type')               
+                  
 class Stack():
-    __alist = factory('List')
+    __alist = Factory('List')
     
     def push(self, item=None):
         self.__alist.add(item)
